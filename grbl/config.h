@@ -162,7 +162,7 @@
 // NOTE: If VARIABLE_SPINDLE is enabled(default), this option has no effect as the PWM output and 
 // spindle enable are combined to one pin. If you need both this option and spindle speed PWM, 
 // uncomment the config option USE_SPINDLE_DIR_AS_ENABLE_PIN below.
-// #define INVERT_SPINDLE_ENABLE_PIN // Default disabled. Uncomment to enable.
+#define INVERT_SPINDLE_ENABLE_PIN // Default disabled. Uncomment to enable.
 
 // Enable control pin states feedback in status reports. The data is presented as simple binary of
 // the control pin port (0 (low) or 1(high)), masked to show only the input pins. Non-control pins on the 
@@ -243,7 +243,7 @@
 // equally divided voltage bins between the maximum and minimum spindle speeds. So for a 5V pin, 1000
 // max rpm, and 250 min rpm, the spindle output voltage would be set for the following "S" commands: 
 // "S1000" @ 5V, "S250" @ 0.02V, and "S625" @ 2.5V (mid-range). The pin outputs 0V when disabled.
-#define SPINDLE_MAX_RPM 1000.0 // Max spindle RPM. This value is equal to 100% duty cycle on the PWM.
+#define SPINDLE_MAX_RPM 30000.0 // Max spindle RPM. This value is equal to 100% duty cycle on the PWM.
 #define SPINDLE_MIN_RPM 0.0    // Min spindle RPM. This value is equal to (1/256) duty cycle on the PWM.
 
 // Used by variable spindle output only. This forces the PWM output to a minimum duty cycle when enabled.
@@ -260,7 +260,7 @@
 // NOTE: BEWARE! The Arduino bootloader toggles the D13 pin when it powers up. If you flash Grbl with
 // a programmer (you can use a spare Arduino as "Arduino as ISP". Search the web on how to wire this.), 
 // this D13 LED toggling should go away. We haven't tested this though. Please report how it goes!
-// #define USE_SPINDLE_DIR_AS_ENABLE_PIN // Default disabled. Uncomment to enable.
+#define USE_SPINDLE_DIR_AS_ENABLE_PIN // Default disabled. Uncomment to enable.
 
 // With this enabled, Grbl sends back an echo of the line it has received, which has been pre-parsed (spaces
 // removed, capitalized letters, no comments) and is to be immediately executed by Grbl. Echoes will not be 
